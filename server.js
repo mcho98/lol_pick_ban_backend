@@ -6,6 +6,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const PORT = process.env.PORT || 5000;
+
 // Forward prediction request to FastAPI model server
 app.post("/api/predict", async (req, res) => {
   try {
@@ -17,6 +19,6 @@ app.post("/api/predict", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("Backend running at http://localhost:5000");
+app.listen(PORT, () => {
+  console.log(`Backend running on port ${PORT}`);
 });
